@@ -27,11 +27,11 @@ export default {
 	data: () => ({
 		isOpen: true
 	}),
-  async mounted () {
-	  if (!Object.key(this.$store.getters.info).length) {
+	async mounted () {
+	  if (!Object.keys(this.$store.getters.info).length) {
 		  await this.$store.dispatch('getInfo')
 	  }
-  },
+	},
 	components: {
 		Navbar, Sidebar
 	}

@@ -1,0 +1,40 @@
+<template>
+    <div class="col s12 m6 l4">
+		<div class="card light-blue bill-card">
+			<div class="card-content white-text">
+			<span class="card-title">Счет в валюте</span>
+
+			<p
+			class="currency-line"
+			v-for="cur in currencies"
+			:key="cur"
+			>
+				<span>{{ receiveCurrency(cur)}}</span>
+			</p>
+			</div>
+		</div>
+	</div>
+</template>
+
+<script>
+export default {
+	props: ['rates'],
+	data () {
+		return {
+			currencies: ['UAH', 'USD', 'EUR']
+		}
+	},
+	computed: {
+		base () {
+			console.log('aaa ' + (this.rates.UAH / this.rates.EUR))
+			return this.$store.getters.bill / (this.rates.UAH / this.rates.EUR)
+		}
+	},
+	methods: {
+		receiveCurrency (currency) {
+			// console.log('base'+ base())
+			return Math.floor(this.base * this.rates[currency])
+		}
+	}
+}
+</script>

@@ -18,6 +18,10 @@ export default new Vuex.Store({
 		}
 	},
 	actions: {
+		async getCurrency () {
+			const res = await fetch('http://data.fixer.io/api/latest?access_key=c59a83e7f939fdfa5a1d1ab4a4e627b3&symbols=USD,EUR,UAH')
+			return await res.json()
+		}
 	},
 	getters: {
 		error: s => s.error
