@@ -26,13 +26,11 @@ export default {
 	},
 	computed: {
 		base () {
-			console.log('aaa ' + (this.rates.UAH / this.rates.EUR))
-			return this.$store.getters.bill / (this.rates.UAH / this.rates.EUR)
+			return this.$store.getters.info.bill / (this.rates.UAH / this.rates.EUR)
 		}
 	},
 	methods: {
 		receiveCurrency (currency) {
-			// console.log('base'+ base())
 			return Math.floor(this.base * this.rates[currency])
 		}
 	}
