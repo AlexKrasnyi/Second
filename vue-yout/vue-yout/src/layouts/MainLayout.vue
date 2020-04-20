@@ -15,7 +15,7 @@
 			</main>
 
 			<div class="fixed-action-btn">
-				<router-link class="btn-floating btn-large blue" to="/record">
+				<router-link class="btn-floating btn-large blue" to="/record" v-tooltip="'Створити новий запис'">
 				<i class="large material-icons">add</i>
 				</router-link>
 			</div>
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import Navbar from '@/components/app/Navbar.vue'
 import Sidebar from '@/components/app/Sidebar.vue'
 export default {

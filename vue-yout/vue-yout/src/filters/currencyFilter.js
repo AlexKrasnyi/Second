@@ -1,6 +1,7 @@
-export default function currecyFilter (value, currency = 'UAH') {
-	return new Intl.NumberFormat('uk-ua', {
+/* eslint-disable */
+export default function currecyFilter (value) {
+	return new Intl.NumberFormat('uk-UA', {
 		style: 'currency',
-		currency
+		currency: 'UAH'
 	}).format(value)
 }

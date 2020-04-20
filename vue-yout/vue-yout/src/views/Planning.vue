@@ -2,7 +2,7 @@
     <div>
     <div class="page-title">
         <h3>Планування</h3>
-        <h4>{{ info.bill | currensy('UAH') }}</h4>
+        <h4>{{ info.bill | currency('UAH') }}</h4>
     </div>
 
     <Loader v-if="loading" />
@@ -13,9 +13,9 @@
         <div v-for="categor in categories" :key="categor.id">
         <p>
             <strong>{{ categor.title }}</strong>
-            {{categor.spend}} з {{categor.limit}}
+            {{categor.spend | currency }} з {{categor.limit | currency}}
         </p>
-        <div class="progress" >
+        <div class="progress" v-tooltip="categor.tooltip">
             <div
                 class="determinate"
                 :class="[categor.progressColor]"
@@ -51,19 +51,23 @@ export default {
                     return total += +record.amount
                 }, 0)
 
-                const persent = 100 * spend / categor.limit
-                const progressPersent = persent >100 ? 100 : persent
-                const progressColor = persent < 60 
-                    ? 'green'
-                    : persent < 100 
-                        ? 'yellow'
-                        : 'red'
+            const persent = 100 * spend / categor.limit
+            const progressPersent = persent >100 ? 100 : persent
+            const progressColor = persent < 60 
+                ? 'green'
+                : persent < 100 
+                    ? 'yellow'
+                    : 'red'
+
+            const tooltipValue = categor.limit - spend
+            const tooltip = `${tooltipValue < 0 ? 'Перевищено на: ' : 'Залишилось: '} ${Math.abs(tooltipValue)} грн.`
 
             return {
                 ...categor,
                 progressPersent,
                 progressColor,
-                spend
+                spend,
+                tooltip
             }    
         })
 
