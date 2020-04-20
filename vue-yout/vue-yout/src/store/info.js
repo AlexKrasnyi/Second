@@ -1,3 +1,4 @@
+/* eslint-disable */
 import firebase from 'firebase/app'
 export default {
 	state: {
@@ -12,6 +13,17 @@ export default {
 		}
 	},
 	actions: {
+		async refreshInfo ({ dispatch, commit, getters }, refresh) {
+			try {
+				const uid = await dispatch('getUid')
+				const refreshData = {...getters.info, ...refresh}
+				await firebase.database().ref(`/users/${uid}/info`).update(refreshData)			
+				commit('setInfo', refreshData)
+			} catch (e) {
+				commit('setError', e)
+				throw e
+			}
+		},
 		async getInfo ({ dispatch, commit }) {
 			try {
 				const uid = await dispatch('getUid')

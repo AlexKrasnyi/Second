@@ -3,7 +3,7 @@
 	<div class="page-title">
 		<h3>Счет</h3>
 
-		<button class="btn waves-effect waves-light btn-small">
+		<button class="btn waves-effect waves-light btn-small" @click="refresh">
 		<i class="material-icons">refresh</i>
 		</button>
 	</div>
@@ -14,7 +14,10 @@
 		:rates="currency.rates"
 		 />
 
-		<HomeCyrrency />
+		<HomeCyrrency
+		:rates="currency.rates"
+		:date="currency.date"
+		/>
 
 	</div>
 	</div>
@@ -31,9 +34,15 @@ export default {
 			currency: null
 		}
 	},
+	methods: {
+		async refresh () {
+			this.loading = true
+			this.currency = await this.$store.dispatch('getCurrency')
+			this.loading = false
+		}
+	},
 	async mounted () {
 		this.currency = await this.$store.dispatch('getCurrency')
-		console.log(this.currency)
 		this.loading = false
 	},
 	components: {

@@ -1,4 +1,5 @@
 /* eslint-disable */
+/* global M */
 <template>
   <form class="card auth-card" @submit.prevent="onSubmit">
 	<div class="card-content">
@@ -29,7 +30,7 @@
 							id="password"
 							type="password"
 							v-model.trim="password"
-							:class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && $v.password.minLength) }"
+							:class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }"
 					>
 					<label for="password">Пароль</label>
 					<small
@@ -88,7 +89,6 @@ export default {
 			if (this.$v.$invalid) {
 				this.$v.$touch()
 			}
-
 			const formData = {
 				email: this.email,
 				password: this.password

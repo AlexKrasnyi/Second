@@ -9,7 +9,7 @@
 			v-for="cur in currencies"
 			:key="cur"
 			>
-				<span>{{ receiveCurrency(cur)}}</span>
+				<span>{{cur}}: {{ receiveCurrency(cur) }}</span>
 			</p>
 			</div>
 		</div>
