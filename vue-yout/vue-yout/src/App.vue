@@ -8,7 +8,7 @@
 </template>
 
 <script>
-
+/* eslint-disable */
 import EmptyLayout from '@/layouts/EmptyLayout'
 import MainLayout from '@/layouts/MainLayout'
 export default {

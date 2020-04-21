@@ -5,7 +5,9 @@
 </template>
 
 <script>
+/* eslint-disable */
 import messages from '@/utils/messages.js'
+import localizeFilter from '@/filters/localize.filter'
 export default {
 	computed: {
 		error () {
@@ -14,7 +16,7 @@ export default {
 	},
 	watch: {
 		error (fbError) {
-			this.$error(messages[fbError.code] || 'Что то пошло не так')
+			this.$error(messages[fbError.code] || localizeFilter('MainLayour_ErrorMessage'))
 		}
 	}
 }

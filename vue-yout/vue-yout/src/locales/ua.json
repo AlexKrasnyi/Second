@@ -1,0 +1,19 @@
+{
+    "ProfileTitle": "Профіль",
+    "Name": "Ім'я",
+    "Message_EnterName": "Введіть ім'я",
+    "Update": "Оновити",
+    "Menu_Bill": "Рахунок",
+    "Menu_History": "Історія",
+    "Menu_Planning": "Планування",
+    "Menu_NewRecord": "Новий запис",
+    "Menu_Categories": "Категорії",
+    "MainLayour_ErrorMessage": "Щось пішло не так",
+    "Error": "Помилка",
+    "Messages_logout": "Вы вийшли з системи",
+    "Messages_login": "Потрібно зайти в систему",
+    "Messages_user-not-found": "Користувач з таким Email не існує",
+    "Messages_wrong-password": "Не дійсний пароль",
+    "Messages_email-already-in-use": "Email занятий"
+
+}

@@ -31,7 +31,7 @@
                 value="income"
 				v-model="type"
             />
-            <span>Доход</span>
+            <span>Дохід</span>
         </label>
         </p>
 
@@ -44,7 +44,7 @@
                 value="outcome"
 				v-model="type"
             />
-            <span>Расход</span>
+            <span>Витрата</span>
         </label>
         </p>
 

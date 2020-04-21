@@ -42,6 +42,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 export default {
 	data: () => ({
 		date: new Date(),

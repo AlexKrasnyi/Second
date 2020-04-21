@@ -1,0 +1,20 @@
+{
+    "ProfileTitle": "Profile",
+    "Name": "Name",
+    "Message_EnterName": "Enter your name",
+    "Update": "Update",
+    "Menu_Bill": "Bill",
+    "Menu_History": "History",
+    "Menu_Planning": "Planning",
+    "Menu_NewRecord": "NewRecord",
+    "Menu_Categories": "Categories",
+    "MainLayour_ErrorMessage": "Something went wrong",
+    "Error": "Error",
+    "Messages_logout": "You are logged out",
+    "Messages_login": "You need to log in",
+    "Messages_user-not-found": "There is no user with this Email",
+    "Messages_wrong-password": "Invalid password",
+    "Messages_email-already-in-use": "Email classes"
+    
+
+}

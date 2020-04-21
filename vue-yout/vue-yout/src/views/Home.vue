@@ -24,6 +24,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import HomeBill from '@/components/HomeBill'
 import HomeCyrrency from '@/components/HomeCurrency'
 export default {
