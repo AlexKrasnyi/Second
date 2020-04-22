@@ -9,5 +9,5 @@ const locales = {
 }
 export default function localizeFilter(key) {
     const locale = store.getters.info.locale || 'uk-UA'
-    return locales[locale][key] || `[Localize error]: key ${key} not found`
+    return locales[locale][key] || ` ${key} `
 }

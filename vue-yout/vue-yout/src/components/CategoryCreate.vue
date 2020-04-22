@@ -3,7 +3,7 @@
     <div class="col s12 m6">
         <div>
           <div class="page-subtitle">
-            <h4>Створити</h4>
+            <h4>{{'CategorCreate_create' | localize}}</h4>
         </div>
 
         <form @submit.prevent="submitHundlers()">
@@ -14,11 +14,11 @@
                   v-model.trim="title"
                   :class="{invalid: $v.title.$dirty && !$v.title.required}"
               >
-              <label for="name">Назва</label>
+              <label for="name">{{'CategorCreate_title' | localize}}</label>
               <span
                class="helper-text invalid"
                v-if="$v.title.$dirty && !$v.title.required">
-               Введіть назву категорії
+               {{'CategoryCreate_categoryName_message' | localize}}
                </span>
             </div>
 
@@ -29,17 +29,17 @@
                   v-model.number="limit"
                   :class="{ invalid : $v.limit.$dirty && !$v.limit.minValue }"
               >
-              <label for="limit">Ліміт</label>
+              <label for="limit">{{'CategoryCreate_limit' | localize}}</label>
               <span
                class="helper-text invalid"
                v-if="$v.limit.$dirty && !$v.limit.minValue"
                >
-               Мінімум: {{ $v.limit.$params.minValue.min }} грн.
+               {{'CategoryCreate_min' | localize}}:  {{$v.limit.$params.minValue.min}}  {{'CategoryCreate_uah' | localize}}
                </span>
             </div>
 
             <button class="btn waves-effect waves-light" type="submit">
-              Створити
+              {{'CategorCreate_create' | localize}}
               <i class="material-icons right">send</i>
             </button>
         </form>
@@ -50,6 +50,7 @@
 <script>
 /* eslint-disable */
 import { required, minValue } from 'vuelidate/lib/validators'
+import localizeFilter from '@/filters/localize.filter'
 export default {
 	data: () => ({
 		title: '',
@@ -76,7 +77,7 @@ export default {
 				this.title = ''
         this.limit = 100
 				this.$v.$reset()
-				this.$message('Категорія створена')
+				this.$message(localizeFilter('CategoryCreate_message'))
 				this.$emit('created', category)
 			} catch (e) {}
 		}

@@ -1,5 +1,5 @@
-/* eslint-disable */
 import localizeFilter from '@/filters/localize.filter'
+/* eslint-disable */
 export default {
 	install (Vue, options) {
 		Vue.prototype.$message = function (html) {

@@ -3,7 +3,7 @@
     <div class="col s12 m6">
         <div>
             <div class="page-subtitle">
-            <h4>Редагувати</h4>
+            <h4>{{'CategoryEdit_edit' | localize}}</h4>
             </div>
 
             <form @submit.prevent="categoryEdit">
@@ -15,7 +15,7 @@
 					:value="c.id"
 					>{{ c.title }}</option>
                 </select>
-                <label>Виберіть категорію</label>
+                <label>{{'CategoryEdit_selectCategory' | localize}}</label>
                 </div>
 
                 <div class="input-field">
@@ -25,11 +25,11 @@
 				v-model="title"
 				:class="{ invalid: $v.title.$dirty && !$v.title.required}"
 				>
-                <label for="name">Назва</label>
+                <label for="name">{{'CategorCreate_title' | localize}}</label>
                 <span class="helper-text invalid"
 				v-if="$v.title.$dirty && !$v.title.required"
 				>
-				Введіть назву категорії
+				{{'CategoryCreate_categoryName_message' | localize}}
 				</span>
                 </div>
 
@@ -40,17 +40,17 @@
 				v-model="limit"
 				:class="{ invalid: $v.limit.$dirty && !$v.limit.minValue }"
                 >
-                <label for="limit">Ліміт</label>
+                <label for="limit">{{'CategoryCreate_limit' | localize}}</label>
                 <span
 				 class="helper-text invalid"
 				 v-if="$v.limit.$dirty && !$v.limit.minValue"
 				 >
-				 Мінімум: {{ $v.limit.$params.minValue.min }} грн.
+				 {{'CategoryCreate_min' | localize}}: {{ $v.limit.$params.minValue.min }} {{'CategoryCreate_uah' | localize}}
 				 </span>
                 </div>
 
                 <button class="btn waves-effect waves-light" type="submit">
-                Оновити
+               {{'Update' | localize}}
                 <i class="material-icons right">send</i>
                 </button>
             </form>
@@ -61,6 +61,7 @@
 <script>
 /* eslint-disable */
 import { required, minValue } from 'vuelidate/lib/validators'
+import localizeFilter from '@/filters/localize.filter'
 export default {
 	props: {
 		categories: {
@@ -100,7 +101,7 @@ export default {
 					limit: this.limit
 				}
 				await this.$store.dispatch('categoryRefresh', categoryInform)
-				this.$message('Категорія оновлена успішно')
+				this.$message(localizeFilter('CategoryEdit_massage'))
 				this.$emit('refreshed', categoryInform)
 			} catch (e) {}
 		}

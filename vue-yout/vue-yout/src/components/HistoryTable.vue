@@ -3,11 +3,11 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Сума</th>
-                <th>Дата</th>
-                <th>Категорія</th>
-                <th>Тип</th>
-                <th>Відкрити</th>
+                <th>{{'Sum' | localize}}</th>
+                <th>{{'Date' | localize}}</th>
+                <th>{{'Category' | localize}}</th>
+                <th>{{'Type' | localize}}</th>
+                <th>{{'Open' | localize}}</th>
             </tr>
         </thead>
 
@@ -26,7 +26,7 @@
                 <button
 				class="btn-small btn"
 				@click="$router.push('/detail-record/' + record.id)"
-				v-tooltip="'Подивитись запис'"
+				v-tooltip="'Tooltipe_watchEntry'"
 				>
                     <i class="material-icons">open_in_new</i>
                 </button>

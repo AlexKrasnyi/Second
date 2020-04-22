@@ -3,9 +3,9 @@
 	<Loader v-if="loading" />
   <div v-else-if="record">
     <div class="breadcrumb-wrap">
-      <router-link to="/history" class="breadcrumb">Історія</router-link>
+      <router-link to="/history" class="breadcrumb">{{'Menu_History' | localize}}</router-link>
       <a @click.prevent  class="breadcrumb">
-        {{record.type === 'income' ? 'Дохід' : 'Видаток'}}
+        {{record.type === 'income' ? 'Income' : 'Outcome' }}
       </a>
     </div>
     <div class="row">
@@ -17,9 +17,9 @@
 			  'green': record.type === 'income'
 			  }">
           <div class="card-content white-text">
-            <p>Опис: {{ record.description}}</p>
-            <p>Сума: {{ record.amount | currency}}</p>
-            <p>Категорія: {{ record.categoryName }} </p>
+            <p>{{'Description' | localize}} {{ record.description}}</p>
+            <p>{{'Sum' | localize}}: {{ record.amount | currency}}</p>
+            <p>{{'Category' | localize}}: {{ record.categoryName }} </p>
 
             <small>{{ record.date | date('datatime')}}</small>
           </div>
@@ -34,21 +34,22 @@
 
 <script>
 /* eslint-disable */
+import localizeFilter from '@/filters/localize.filter'
 export default {
 	name: 'detail',
 	data: () => ({
 		record: null,
-		loading: true,
-	}),
+    loading: true,
+  }),
 	async mounted () {
-		const id = this.$route.params.id
-		const record = await this.$store.dispatch('getRecordById', id)
-		const category = await this.$store.dispatch('getCategoryById', record.categoryId)
+    const id = this.$route.params.id
+    const record = await this.$store.dispatch('getRecordById', id)
+    const category = await this.$store.dispatch('getCategoryById', record.categoryId)
 		this.record ={
 			...record,
 			categoryName: category.title
-		}
-		this.loading = false
+    }
+    this.loading = false
 	}
 	}
 </script>

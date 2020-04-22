@@ -2,7 +2,7 @@
 <template>
 	<form class="card auth-card" @submit.prevent="onSubmit">
 	<div class="card-content">
-		<span class="card-title">Домашняя бухгалтерия</span>
+		<span class="card-title">{{'Register_homeAccouting' | localize}}</span>
 		<div class="input-field">
 		<input
 			id="email"
@@ -15,13 +15,13 @@
 		class="helper-text invalid"
 		v-if="$v.email.$dirty && !$v.email.required"
 		 >
-		Поле обязательно для заполнения
+		{{'Register_message_requiredField' | localize}}
 		 </small>
 		 <small
 		class="helper-text invalid"
 		v-else-if="$v.email.$dirty && !$v.email.email"
 		 >
-		Введите корректный Email
+		{{'Register_message_correctEmail' | localize}}
 		 </small>
 		</div>
 		<div class="input-field">
@@ -31,18 +31,18 @@
 			v-model.trim="password"
 			:class="{ invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength) }"
 		>
-		<label for="password">Пароль</label>
+		<label for="password">{{'Password' | localize}}</label>
 		<small
 		class="helper-text invalid"
 		v-if="$v.password.$dirty && !$v.password.required"
 		>
-		Поле обязательно для заполнения
+		{{'Register_message_requiredField' | localize}}
 		</small>
 		<small
 		class="helper-text invalid"
 		v-else-if="$v.password.$dirty && !$v.password.minLength"
 		>
-		Пароль должен быть минимум {{ $v.password.$params.minLength.min }} символов. сейчас он {{ password.length }}
+		{{'Register_minPassword' | localize}} {{ $v.password.$params.minLength.min }} {{'Register_minSymbols' | localize}}{{ password.length }}
 		</small>
 		</div>
 		<div class="input-field">
@@ -52,17 +52,17 @@
 			v-model.trim="name"
 			:class="{ invalid: $v.name.$dirty && !$v.name.required }"
 		>
-		<label for="name">Имя</label>
+		<label for="name">{{'Name' | localize}}</label>
 		<small
 		class="helper-text invalid"
 		v-if="$v.name.$dirty && !$v.name.required"
 		>
-		Введите ваше имя</small>
+		{{'Message_EnterName' | localize}}</small>
 		</div>
 		<p>
 		<label>
 			<input type="checkbox" v-model="agree" />
-			<span>С правилами согласен</span>
+			<span>{{'RegisterAgree' | localize}}</span>
 		</label>
 		</p>
 	</div>
@@ -72,14 +72,14 @@
 			class="btn waves-effect waves-light auth-submit"
 			type="submit"
 		>
-			Зарегистрироваться
+			{{'Register_signUp' | localize}}
 			<i class="material-icons right">send</i>
 		</button>
 		</div>
 
 		<p class="center">
-		Уже есть аккаунт?
-		<router-link to="/login">Войти!</router-link>
+		{{'Register_isAccount' | localize}}?
+		<router-link to="/login">{{'Enter' | localize}}!</router-link>
 		</p>
 	</div>
 	</form>

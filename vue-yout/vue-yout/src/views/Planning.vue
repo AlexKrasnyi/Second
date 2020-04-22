@@ -1,13 +1,13 @@
 <template>
     <div>
     <div class="page-title">
-        <h3>Планування</h3>
+        <h3>{{'Menu_Planning' | localize}}</h3>
         <h4>{{ info.bill | currency('UAH') }}</h4>
     </div>
 
     <Loader v-if="loading" />
-    <p class="center" v-else-if="!categories.length">Категорій поки нема.
-        <router-link to="/categories">Додати нову категорію</router-link>
+    <p class="center" v-else-if="!categories.length">{{'Record_categoriesNoYet' | localize}}.
+        <router-link to="/categories">{{'Record_editNewCategory' | localize}}</router-link>
     </p>
     <section v-else>
         <div v-for="categor in categories" :key="categor.id">
@@ -30,6 +30,8 @@
 <script>
 /* eslint-disable */
 import { mapGetters } from 'vuex'
+import localizeFilter from '@/filters/localize.filter'
+import currencyFilter from '@/filters/currencyFilter'
 export default {
     name: 'planning',
     data: () => ({
@@ -60,7 +62,7 @@ export default {
                     : 'red'
 
             const tooltipValue = categor.limit - spend
-            const tooltip = `${tooltipValue < 0 ? 'Перевищено на: ' : 'Залишилось: '} ${Math.abs(tooltipValue)} грн.`
+            const tooltip = `${tooltipValue < 0 ? localizeFilter('Planning_exceeded') : localizeFilter('Planning_message_remains')} ${currencyFilter(Math.abs(tooltipValue))}.`
 
             return {
                 ...categor,

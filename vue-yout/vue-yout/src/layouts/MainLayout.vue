@@ -15,7 +15,7 @@
 			</main>
 
 			<div class="fixed-action-btn">
-				<router-link class="btn-floating btn-large blue" to="/record" v-tooltip="'Створити новий запис'">
+				<router-link class="btn-floating btn-large blue" to="/record" v-tooltip="'Menu_NewRecord'">
 				<i class="large material-icons">add</i>
 				</router-link>
 			</div>
@@ -52,7 +52,7 @@ export default {
 	},
 	watch: {
 		error (fbError) {
-			this.$error(messages[fbError.code] || localizeFilter('MainLayour_ErrorMessage'))
+			this.$error(messages[fbError.code] || 'MainLayour_ErrorMessage')
 		}
 	},
 	components: {
