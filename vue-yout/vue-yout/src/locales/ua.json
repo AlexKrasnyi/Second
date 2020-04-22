@@ -62,7 +62,8 @@
     "Planning_message_remains": "Залишилось: ",
     "Record_message": "На рахунку не достатньо коштів. Не достатньо:",
     "RecordAdd": "Запис додано",
-    "Login_noAccaunt": "Нема акаунта"
+    "Login_noAccaunt": "Нема акаунта",
+    "ChartInfo": "Видатки по категоріям"
     
 
 }

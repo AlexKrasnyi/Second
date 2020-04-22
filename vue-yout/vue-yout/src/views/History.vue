@@ -21,8 +21,8 @@
 			v-model="page"
         	:page-count="pageCount"
 			:click-handler="pageChangeHandler"
-			:prev-text="'Back'"
-			:next-text="'Forward'"
+			:prev-text="back"
+			:next-text="forward"
 			:container-class="'pagination'"
             :page-class="'waves-effect'"
         />
@@ -35,10 +35,10 @@
 import paginationMixin from '@/mixins/pagination.mixin'
 import HistoryTable from '@/components/HistoryTable'
 import localizeFilter from '@/filters/localize.filter'
-import { Pie } from 'vue-chartjs'
+import { Bar } from 'vue-chartjs'
 export default {
 	name: 'history',
-	extends: Pie,
+	extends: Bar,
 	mixins: [paginationMixin],
     data: () => ({
         loading: true,
@@ -48,7 +48,7 @@ export default {
     async mounted () {
         this.records = await this.$store.dispatch('getRecord')
         this.categories = await this.$store.dispatch('getCategory')
-		this.loading = false
+        this.loading = false
 		this.setup()
 		//this.loading = false
 	},
@@ -66,7 +66,7 @@ export default {
 		this.renderChart({
         labels: this.categories.map(i => i.title),
         datasets: [{
-            label: 'Видатки по категоріям',
+            label: localizeFilter('ChartInfo'),
             data: this.categories.map(i => {
 				return this.records.reduce((total, r) => {
 					if(r.categoryId === i.id && r.type === 'outcome') {

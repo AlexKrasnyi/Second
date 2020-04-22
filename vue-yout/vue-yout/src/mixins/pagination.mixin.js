@@ -1,5 +1,6 @@
 /* eslint-disable */
 import _ from 'lodash'
+import localizeFilter from '@/filters/localize.filter'
 
 export default {
 	data () {
@@ -8,7 +9,9 @@ export default {
 			pageSize: 4,
 			pageCount: 0,
 			allItems: [],
-			items: []
+			items: [],
+			back: null,
+			forward: null
 		}
 	},
 	methods: {
@@ -20,6 +23,8 @@ export default {
 			this.allItems = _.chunk(allItems, this.pageSize)
 			this.pageCount = _.size(this.allItems)
 			this.items = this.allItems[this.page - 1] || this.allItems[0]
+			this.back = localizeFilter('Back')
+			this.forward = localizeFilter('Forward')
 
 		}
 	}
