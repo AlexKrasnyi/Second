@@ -28,6 +28,11 @@
 import HomeBill from '@/components/HomeBill'
 import HomeCyrrency from '@/components/HomeCurrency'
 export default {
+	metaInfo () {
+        return {
+        title: this.$title('Register_homeAccouting')
+        }
+    },
 	name: 'Home',
 	data () {
 		return {

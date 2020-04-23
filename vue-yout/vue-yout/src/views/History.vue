@@ -37,6 +37,11 @@ import HistoryTable from '@/components/HistoryTable'
 import localizeFilter from '@/filters/localize.filter'
 import { Bar } from 'vue-chartjs'
 export default {
+    metaInfo () {
+        return {
+        title: this.$title('Menu_History')
+        }
+    },
 	name: 'history',
 	extends: Bar,
 	mixins: [paginationMixin],

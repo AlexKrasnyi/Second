@@ -44,7 +44,7 @@
     "History_addNew": "Add a new entry",
     "Forward": "Forward",
     "Back": "Back",
-    "Enter": "Enter",
+    "Enter": "LogIn",
     "Record_editNewCategory": "Add new category",
     "Record_enterDescription": "Enter descripton",
     "Record_categoriesNoYet": "Categories no yet",
@@ -63,7 +63,10 @@
     "Record_message": "There is not enough money in the account. Not enough:",
     "RecordAdd": "Record added",
     "Login_noAccaunt": "no account",
-    "ChartInfo": "Expenditure by category"
+    "ChartInfo": "Expenditure by category",
+    "DetailRecord": "Record details",
+    "Detail_message_p1": "Entries with id",
+    "Detail_message_p2": "does not exist"
     
     
 

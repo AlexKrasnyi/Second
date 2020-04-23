@@ -28,7 +28,7 @@
     </div>
   </div>
 
-  <p class="center" v-else-if="!record">Запису з id: {{$route.params.id}} не існує</p>
+  <p class="center" v-else-if="!record">{{'Detail_message_p1' | localize}}: {{$route.params.id}} {{'Detail_message_p2' | localize}}</p>
 </div>
 </template>
 
@@ -36,6 +36,11 @@
 /* eslint-disable */
 import localizeFilter from '@/filters/localize.filter'
 export default {
+  metaInfo () {
+        return {
+        title: this.$title('DetailRecord')
+        }
+    },
 	name: 'detail',
 	data: () => ({
 		record: null,

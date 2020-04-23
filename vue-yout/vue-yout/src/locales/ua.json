@@ -63,7 +63,10 @@
     "Record_message": "На рахунку не достатньо коштів. Не достатньо:",
     "RecordAdd": "Запис додано",
     "Login_noAccaunt": "Нема акаунта",
-    "ChartInfo": "Видатки по категоріям"
+    "ChartInfo": "Видатки по категоріям",
+    "DetailRecord": "Деталі запису",
+    "Detail_message_p1": "Запису з id",
+    "Detail_message_p2": "не існує"
     
 
 }
